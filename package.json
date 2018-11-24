@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/shedrachokonofua/column#readme",
   "dependencies": {
+    "joi": "^14.1.1",
+    "moment": "^2.22.2",
     "mongoose": "^5.3.13"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "mongodb-memory-server": "^2.7.3"
   }
 }
