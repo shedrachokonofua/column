@@ -1,0 +1,22 @@
+{
+  "name": "column",
+  "version": "0.0.1",
+  "description": "Personal freelance job column",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shedrachokonofua/column.git"
+  },
+  "author": "Shedrach Okonofua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shedrachokonofua/column/issues"
+  },
+  "homepage": "https://github.com/shedrachokonofua/column#readme",
+  "dependencies": {
+    "mongoose": "^5.3.13"
+  }
+}
