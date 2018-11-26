@@ -4,7 +4,7 @@
   "description": "Personal freelance job column",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "repository": {
     "type": "git",
