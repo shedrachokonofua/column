@@ -18,7 +18,7 @@ describe('#create', () => {
       description: 'test',
       sourced: new Date(),
       posted: new Date(),
-      source: 'r/forhire',
+      source: 'R_FORHIRE',
       link: 'testdotcom'
     };
     try {
@@ -38,7 +38,7 @@ describe('#removeOutdated', () => {
       description: 'test',
       sourced: new Date(),
       posted: moment().subtract(3, 'days').toDate(),
-      source: 'r/forhire',
+      source: 'R_FORHIRE',
       link: 'http://test.com'
     });
   });

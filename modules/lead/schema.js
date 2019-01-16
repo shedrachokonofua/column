@@ -13,7 +13,7 @@ module.exports = new Schema({
   },
   source: {
     type: String,
-    enum: [Object.values(crawlers), 'Invalid source type.'],
+    enum: [Object.key(crawlers), 'Invalid source type.'],
     required: true
   },
   link: {
