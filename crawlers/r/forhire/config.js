@@ -1,9 +1,11 @@
+const crawl = require('./index')
+
 module.exports = {
   tasks: [
     {
       name: 'Find Dev Jobs',
       fn: function(){
-        console.log('We here')
+        crawl()
       },
       cronTime: '*/5 * * * * *'
     }
