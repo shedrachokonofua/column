@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --detectOpenHandles",
     "preinstall": "npm i -g pm2",
-    "start": "pm2-runtime start"
+    "start": "pm2-runtime start ecosystem.config.js --json"
   },
   "repository": {
     "type": "git",
