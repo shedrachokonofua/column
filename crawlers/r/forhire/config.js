@@ -7,7 +7,7 @@ module.exports = {
       fn: function(){
         crawl()
       },
-      cronTime: '*/1 * * * *'
+      cronTime: '*/5 * * * *'
     }
   ]
 }
