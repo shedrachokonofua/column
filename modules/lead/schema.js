@@ -31,5 +31,9 @@ module.exports = new Schema({
   sourced: {
     type: Date,
     required: true
+  },
+  meta: {
+    type: Object,
+    default: {}
   }
 });
