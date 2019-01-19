@@ -3,7 +3,7 @@ const moment = require('moment');
 const mongoose = require('mongoose');
 
 beforeAll(async () => {
-  await mongoose.connect(global.MONGO_URI, { useNewUrlParser: true });
+  await mongoose.connect(global.MONGODB_URI, { useNewUrlParser: true });
 })
 
 afterAll(async () => {

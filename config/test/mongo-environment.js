@@ -12,7 +12,7 @@ module.exports = class MongoEnvironment extends NodeEnvironment {
     console.log('Setup MongoDB Test Environment');
 
     const globalConfig = JSON.parse(fs.readFileSync(globalConfigPath, 'utf-8'));
-    this.global.MONGO_URI = globalConfig.mongoUri;
+    this.global.MONGODB_URI = globalConfig.mongoUri;
     await super.setup();
   }
 
