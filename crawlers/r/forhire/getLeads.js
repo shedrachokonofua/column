@@ -1,9 +1,13 @@
 const axios = require('axios');
+const axiosRetry = require('axios-retry');
 const moment = require('moment');
 const { uniqBy, flatten } = require('lodash');
 const { URL } = require('url');
-
 const keywords = require('./keywords');
+
+
+axiosRetry(axios, { retries: 3, retryDelay: axiosRetry.exponentialDelay });
+
 const flairs = [
   'Hiring',
   'Hiring - Open'
