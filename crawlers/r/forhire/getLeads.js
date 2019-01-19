@@ -1,11 +1,12 @@
 const axios = require('axios');
 const axiosRetry = require('axios-retry');
+const bottleneck = require('bottleneck');
 const moment = require('moment');
 const { uniqBy, flatten } = require('lodash');
 const { URL } = require('url');
 const keywords = require('./keywords');
 
-
+const limiter = new bottleneck({ maxConcurrent: 1 });
 axiosRetry(axios, { retries: 3, retryDelay: axiosRetry.exponentialDelay });
 
 const flairs = [
@@ -36,7 +37,7 @@ async function getPosts(query, start = false, allPosts = []) {
   return postsHolder;
 }
 
-async function makeRequest(query, start) {
+const makeRequest = limiter.wrap(async function makeRequest(query, start) {
   try {
     const url = new URL('https://reddit.com/r/forhire/search.json');
     url.searchParams.append('q', query);
@@ -56,7 +57,7 @@ async function makeRequest(query, start) {
   } catch(err) {
     console.log(err)
   }
-}
+});
 
 function getInitialQueries() {
   const queries = [];
