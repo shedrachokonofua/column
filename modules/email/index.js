@@ -1,12 +1,17 @@
 const sgMail = require('@sendgrid/mail');
-const { template } = require('lodash');
+const { template: compileTemplate  } = require('lodash');
 
-module.exports = async function email(subject, rawTemplate, data) {
-  const compiledTemplate = template(rawTemplate);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+module.exports = async function email({ sender, subject, template, data }) {
+  const compiledTemplate = compileTemplate(template);
   const html = compiledTemplate(data);
   const emailData = {
     to: process.env.OWNER_EMAIL,
-    from: process.env.SENDER_EMAIL,
+    from: {
+      email: process.env.SENDER_EMAIL,
+      name: sender
+    },
     subject,
     html
   };
