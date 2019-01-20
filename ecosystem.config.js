@@ -1,10 +1,10 @@
 module.exports = {
   apps : [{
     name: 'Client',
-    script: 'npm',
-    args: 'run start-client',
+    cwd: './client/',
+    script: 'server.js',
     exec_mode: 'cluster',
-    instances: 'max',
+    instances: 1,
   }, {
     name: 'Task Runner',
     script: './tasks/index.js',

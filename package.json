@@ -9,7 +9,7 @@
     "build-client": "next build ./client",
     "heroku-postbuild": "npm run build-client",
     "start-client": "next start ./client -p $PORT",
-    "start": "pm2-runtime start ecosystem.config.js --json"
+    "start": "pm2-runtime ecosystem.config.js --raw"
   },
   "repository": {
     "type": "git",
