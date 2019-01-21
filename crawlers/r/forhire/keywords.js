@@ -7,5 +7,6 @@ module.exports = [
   'react native',
   'php',
   'vue',
-  'crawler'
+  'scraping',
+  'python'
 ]
