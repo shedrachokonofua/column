@@ -28,5 +28,6 @@ function cleanDescription(description) {
   return description
     .replace(/\n/g, '<div></div>') // Replace new line with empty div
     .replace(/&amp;#x200B;/g, '<div></div>') // Replace reddit space holder with empty div
-    .replace(/\*\*([^\*\*]*)+\*\*/g, '<b>$1</b>') // Replace reddit bold notation with bold html tags
+    .replace(/\*\*([^\*\*]*)+\*\*/g, '<b>$1</b>') // Convert bold text from reddit format
+    .replace(/\[(.*)\]\((.*)\)/g, '<a href="$2">$1</a>') // Convert links from reddit format
 }
