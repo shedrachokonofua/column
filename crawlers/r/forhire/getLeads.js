@@ -14,9 +14,9 @@ const flairs = [
   'Hiring - Open'
 ];
 
-module.exports = async function findLeads() {
+module.exports = async function getLeads() {
   const allPosts = await Promise.all(getInitialQueries().map(query => getPosts(query.query)));
-  const posts = flatten(uniqBy(allPosts, 'id'));
+  const posts = uniqBy(flatten(allPosts), 'id');
   const leads = posts.map(post => parsePost(post));
   return leads;
 }
