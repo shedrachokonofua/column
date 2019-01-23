@@ -10,9 +10,9 @@ module.exports = async function () {
     const action = await saveLead(lead);
     if(action) {
       const emailTemplate = await getEmailTemplate('r/forhire', 'newLead');
-      lead.description = lead.description.replace(/\n/g, '<div></div>');
+      lead.description = cleanDescription(lead.description)
       lead.fineDate = moment(lead.posted).fromNow();
-      
+
       await email({
         sender: 'r/forhire Crawler', 
         subject: `New Lead: ${lead.title}`, 
@@ -22,4 +22,11 @@ module.exports = async function () {
       console.log('Lead saved.', { lead });
     }
   }));
+}
+
+function cleanDescription(description) {
+  return description
+    .replace(/\n/g, '<div></div>') // Replace new line with empty div
+    .replace(/&amp;#x200B;/g, '<div></div>') // Replace reddit space holder with empty div
+    .replace(/\*\*([^\*\*]*)+\*\*/g, '<b>$1</b>') // Replace reddit bold notation with bold html tags
 }
