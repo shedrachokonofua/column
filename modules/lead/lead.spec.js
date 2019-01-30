@@ -30,22 +30,3 @@ describe('#create', () => {
     }
   });
 });
-
-describe('#removeOutdated', () => {
-  beforeEach(async () => {
-    await Lead.create({
-      title: 'test_case_1',
-      description: 'test',
-      sourced: new Date(),
-      posted: moment().subtract(3, 'days').toDate(),
-      source: 'R_FORHIRE',
-      link: 'http://test.com'
-    });
-  });
-  test('should remove leads older than 2 days', async () => {
-    expect.assertions(1);
-    await Lead.removeOutdated();
-    const count = await Lead.countDocuments({ title: 'test_case_1' });
-    expect(count).toBe(1);
-  });
-})
