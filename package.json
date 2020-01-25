@@ -1,0 +1,36 @@
+{
+  "name": "column",
+  "version": "1.0.0",
+  "description": "Job Lead Generator",
+  "main": "index.js",
+  "dependencies": {
+    "ajv": "^6.11.0"
+  },
+  "devDependencies": {
+    "ava": "^3.0.0",
+    "husky": "^4.2.1",
+    "xo": "^0.25.3"
+  },
+  "scripts": {
+    "test": "npm test",
+    "lint": "xo",
+    "lint:fix": "xo --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shedrachokonofua/column.git"
+  },
+  "author": "Shedrach Okonofua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shedrachokonofua/column/issues"
+  },
+  "homepage": "https://github.com/shedrachokonofua/column#readme",
+  "husky": {
+    "pre-commit": "npm run lint:fix",
+    "pre-push": "npm test"
+  },
+  "xo": {
+    "space": true
+  }
+}
