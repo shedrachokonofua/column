@@ -7,14 +7,22 @@
     "ajv": "^6.11.0"
   },
   "devDependencies": {
+    "@ava/babel": "^1.0.0",
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/register": "^7.8.3",
     "ava": "^3.0.0",
+    "eslint-plugin-ava": "^10.0.0",
     "husky": "^4.2.1",
     "xo": "^0.25.3"
   },
   "scripts": {
-    "test": "npm test",
+    "test": "ava",
     "lint": "xo",
-    "lint:fix": "xo --fix"
+    "lint:fix": "xo --fix",
+    "build:exec": "babel src -d build",
+    "build": "npm run lint && npm test && npm run build:exec"
   },
   "repository": {
     "type": "git",
@@ -30,7 +38,17 @@
     "pre-commit": "npm run lint:fix",
     "pre-push": "npm test"
   },
+  "ava": {
+    "babel": true,
+    "require": [
+      "./test/helpers/register-source-files.js"
+    ],
+    "files": [
+      "!build"
+    ]
+  },
   "xo": {
-    "space": true
+    "space": true,
+    "extends": "plugin:ava/recommended"
   }
 }
