@@ -4,13 +4,15 @@
   "description": "Job Lead Generator",
   "main": "index.js",
   "dependencies": {
-    "ajv": "^6.11.0"
+    "ajv": "^6.11.0",
+    "next": "^9.2.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.0",
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
     "@babel/register": "^7.8.3",
     "ava": "^3.0.0",
     "eslint-plugin-ava": "^10.0.0",
@@ -22,7 +24,10 @@
     "lint": "xo",
     "lint:fix": "xo --fix",
     "build:exec": "babel src -d build",
-    "build": "npm run lint && npm test && npm run build:exec"
+    "build": "npm run lint && npm test && npm run build:exec",
+    "client:dev": "next ./src/app/client",
+    "client:build": "next build ./src/app/client",
+    "client:start": "next start ./src/app/client"
   },
   "repository": {
     "type": "git",
@@ -48,7 +53,15 @@
     ]
   },
   "xo": {
-    "space": true,
-    "extends": "plugin:ava/recommended"
+    "extends": "plugin:ava/recommended",
+    "rules": {
+      "max-len": [
+        "error",
+        {
+          "code": 80
+        }
+      ]
+    },
+    "space": true
   }
 }
