@@ -16,9 +16,8 @@ Dashboard Client + Crawler System
 - One-click delete
 - Lead refinement
 
-## Crawler System
-- Capable of supporting multiple websites
-- Extendable with relative ease(Crawlers as plugins)
+## Crawler System(Orchestrator + Crawlers)
+- Crawlers for each lead source
+- Extendable with relative ease(Crawlers as Orchestrator plugins)
 - No duplicate leads
 - No reapparence of deleted leads
-- Portable

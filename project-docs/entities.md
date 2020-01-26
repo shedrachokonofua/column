@@ -4,8 +4,7 @@
 ### Attributes
 - name: string
 ### Operations
-- findPotentialLeads: Lead[]
-- filterIrrelevantLeads: Lead[]
+- getLeads: Lead[]
 
 ## Lead
 ### Attributes
